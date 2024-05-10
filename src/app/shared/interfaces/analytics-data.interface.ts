@@ -1,8 +1,8 @@
 export interface AnalyticsData {
-    usage: string[];
-    traffic: string[];
-    dataTransfer: string[];
-    coverage: string[];
-    timeLapsed: string[];
-    populationShare: string[];
+    usage: string;
+    traffic: string;
+    dataTransfer: string;
+    coverage: string;
+    timeLapsed: string;
+    populationShare: string;
 }
