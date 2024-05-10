@@ -19,7 +19,7 @@ export class BarChartComponent implements OnInit {
     this.createChart();
   }
 
-  createChart(){
+  createChart() {
     this.chart = new Chart('bar-chart', {
       type: 'bar',
       data: {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 import { BarChartComponent } from '../bar-chart/bar-chart.component';
 
@@ -6,6 +7,7 @@ import { BarChartComponent } from '../bar-chart/bar-chart.component';
   selector: 'app-bar-chart-page',
   standalone: true,
   imports: [
+    MatCardModule,
     BarChartComponent
   ],
   templateUrl: './bar-chart-page.component.html',
