@@ -19,5 +19,20 @@ export class PieChartComponent implements OnInit {
     this.createChart();
   }
 
-  createChart() {}
+  createChart() {
+    this.chart = new Chart('pie-chart', {
+      type: 'pie',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [
+          {
+            data: [50, 60, 70, 180, 190],
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5
+      }
+    });
+  }
 }

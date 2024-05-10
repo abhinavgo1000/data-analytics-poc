@@ -1,3 +1,4 @@
-
-
+<app-page-header></app-page-header>
+<app-scroll-up *ngIf="showScroll$ | async" (scrollToTop)="onScrollToTop()"></app-scroll-up>
 <router-outlet />
+<app-page-footer></app-page-footer>

@@ -1,0 +1,45 @@
+.nav-spacer {
+    flex: 1 1 auto;
+}
+
+header {
+    position: relative;
+    top: 0;
+    z-index: 11;
+    transition: all 250ms ease-in-out;
+}
+
+.desktop-header {
+    @media screen and (max-width: 899px) {
+        display: none;
+    }
+}
+
+.device-header {
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
+}
+
+.main-header {
+    @extend header;
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+.search-block {
+    @extend header;
+    background: #fff;
+    &.active {
+        width: 100%;
+    }
+}
+
+.search-control {
+    flex: 1;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+}
