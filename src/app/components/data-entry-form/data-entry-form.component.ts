@@ -21,7 +21,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule, TooltipPosition } from '@angular/material/tooltip';
 
 import { AnalyticsDataPostService } from '../../shared/services/analytics-data-post.service';
-import { AnalyticsData } from '../../shared/interfaces/analytics-data.interface';
 
 export class DataErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -54,12 +53,12 @@ export class DataEntryFormComponent implements OnInit {
 
   dataEntryForm: FormGroup;
 
-  usageControl = new FormControl('', [Validators.required]);
-  trafficControl = new FormControl('', [Validators.required]);
-  dataTransferControl = new FormControl('', [Validators.required]);
-  coverageControl = new FormControl('', [Validators.required]);
-  timeLapsedControl = new FormControl('', [Validators.required]);
-  populationShareControl = new FormControl('', [Validators.required]);
+  usage = new FormControl('', [Validators.required]);
+  traffic = new FormControl('', [Validators.required]);
+  dataTransfer = new FormControl('', [Validators.required]);
+  coverage = new FormControl('', [Validators.required]);
+  timeLapsed = new FormControl('', [Validators.required]);
+  populationShare = new FormControl('', [Validators.required]);
 
   matcher = new DataErrorStateMatcher();
 
@@ -95,12 +94,12 @@ export class DataEntryFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataEntryForm = this._formBuilder.group({
-      usageControl: this.usageControl,
-      trafficControl: this.trafficControl,
-      dataTransferControl: this.dataTransferControl,
-      coverageControl: this.coverageControl,
-      timeLapsedControl: this.timeLapsedControl,
-      populationShareControl: this.populationShareControl,
+      usage: this.usage,
+      traffic: this.traffic,
+      dataTransfer: this.dataTransfer,
+      coverage: this.coverage,
+      timeLapsed: this.timeLapsed,
+      populationShare: this.populationShare,
       floatLabel: this.floatLabelControl
     });
   }

@@ -8,10 +8,10 @@
                     <mat-label>Usage</mat-label>
                     <input
                         matInput
-                        [formControl]="usageControl"
+                        [formControl]="usage"
                         [errorStateMatcher]="matcher"
                         placeholder="Enter the usage info" />
-                    @if (usageControl.hasError('required')) {
+                    @if (usage.hasError('required')) {
                         <mat-error>Usage data is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
@@ -21,10 +21,10 @@
                     <mat-label>Traffic</mat-label>
                     <input
                         matInput
-                        [formControl]="trafficControl"
+                        [formControl]="traffic"
                         [errorStateMatcher]="matcher"
                         placeholder="Enter the traffic info" />
-                    @if (trafficControl.hasError('required')) {
+                    @if (traffic.hasError('required')) {
                         <mat-error>Traffic data is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
@@ -34,10 +34,10 @@
                     <mat-label>Data Transfer</mat-label>
                     <input
                         matInput
-                        [formControl]="dataTransferControl"
+                        [formControl]="dataTransfer"
                         [errorStateMatcher]="matcher"
                         placeholder="Enter the data transfer info" />
-                    @if (dataTransferControl.hasError('required')) {
+                    @if (dataTransfer.hasError('required')) {
                         <mat-error>Data Transfer data is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
@@ -47,10 +47,10 @@
                     <mat-label>Coverage</mat-label>
                     <input
                         matInput
-                        [formControl]="coverageControl"
+                        [formControl]="coverage"
                         [errorStateMatcher]="matcher"
                         placeholder="Enter the coverage info" />
-                    @if (coverageControl.hasError('required')) {
+                    @if (coverage.hasError('required')) {
                         <mat-error>Coverage data is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
@@ -61,7 +61,7 @@
                     <input
                         matInput
                         [matDatepicker]="picker"
-                        [formControl]="timeLapsedControl"
+                        [formControl]="timeLapsed"
                         [min]="minDate"
                         [max]="maxDate"
                         [errorStateMatcher]="matcher"
@@ -69,7 +69,7 @@
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi #picker></mat-datepicker>
-                    @if (timeLapsedControl.hasError('required')) {
+                    @if (timeLapsed.hasError('required')) {
                         <mat-error>Date for time lapsed is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
@@ -77,13 +77,13 @@
             <div class="div-margin">
                 <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
                     <mat-label>Population Share</mat-label>
-                    <mat-select [formControl]="populationShareControl" [errorStateMatcher]="matcher">
+                    <mat-select [formControl]="populationShare" [errorStateMatcher]="matcher">
                         <mat-option>None</mat-option>
                         @for (ageGroup of ageGroups; track ageGroup) {
                             <mat-option [value]="ageGroup">{{ageGroup}}</mat-option>
                         }
                     </mat-select>
-                    @if (populationShareControl.hasError('required')) {
+                    @if (populationShare.hasError('required')) {
                         <mat-error>Population Share data is <strong>required</strong></mat-error>
                     }
                 </mat-form-field>
