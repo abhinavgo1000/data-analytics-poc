@@ -40,6 +40,18 @@ export const routes: Routes = [
                 .then(m => m.DataEntryPageComponent)
     },
     {
+        path: 'data-list',
+        loadComponent: () =>
+            import('./components/data-list-page/data-list-page.component')
+                .then(m => m.DataListPageComponent)
+    },
+    {
+        path: 'data-edit',
+        loadComponent: () =>
+            import('./components/data-edit-page/data-edit-page.component')
+                .then(m => m.DataEditPageComponent)
+    },
+    {
         path: '**',
         component: NotFoundPageComponent
     }
