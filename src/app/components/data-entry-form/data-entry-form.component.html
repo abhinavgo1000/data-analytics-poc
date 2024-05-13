@@ -1,1 +1,109 @@
-<p>data-entry-form works!</p>
+<div class="data-entry-container">
+    <form
+        [formGroup]="dataEntryForm">
+        <fieldset>
+            <legend>Data entry form</legend>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Usage</mat-label>
+                    <input
+                        matInput
+                        [formControl]="usageControl"
+                        [errorStateMatcher]="matcher"
+                        placeholder="Enter the usage info" />
+                    @if (usageControl.hasError('required')) {
+                        <mat-error>Usage data is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Traffic</mat-label>
+                    <input
+                        matInput
+                        [formControl]="trafficControl"
+                        [errorStateMatcher]="matcher"
+                        placeholder="Enter the traffic info" />
+                    @if (trafficControl.hasError('required')) {
+                        <mat-error>Traffic data is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Data Transfer</mat-label>
+                    <input
+                        matInput
+                        [formControl]="dataTransferControl"
+                        [errorStateMatcher]="matcher"
+                        placeholder="Enter the data transfer info" />
+                    @if (dataTransferControl.hasError('required')) {
+                        <mat-error>Data Transfer data is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Coverage</mat-label>
+                    <input
+                        matInput
+                        [formControl]="coverageControl"
+                        [errorStateMatcher]="matcher"
+                        placeholder="Enter the coverage info" />
+                    @if (coverageControl.hasError('required')) {
+                        <mat-error>Coverage data is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Time lapsed</mat-label>
+                    <input
+                        matInput
+                        [matDatepicker]="picker"
+                        [formControl]="timeLapsedControl"
+                        [min]="minDate"
+                        [max]="maxDate"
+                        [errorStateMatcher]="matcher"
+                        placeholder="Enter the date to represent the time lapsed" />
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                    @if (timeLapsedControl.hasError('required')) {
+                        <mat-error>Date for time lapsed is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="div-margin">
+                <mat-form-field class="half-width" [floatLabel]="getFloatLabelValue()">
+                    <mat-label>Population Share</mat-label>
+                    <mat-select [formControl]="populationShareControl" [errorStateMatcher]="matcher">
+                        <mat-option>None</mat-option>
+                        @for (ageGroup of ageGroups; track ageGroup) {
+                            <mat-option [value]="ageGroup">{{ageGroup}}</mat-option>
+                        }
+                    </mat-select>
+                    @if (populationShareControl.hasError('required')) {
+                        <mat-error>Population Share data is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-checkbox
+                    class="checkbox-margin"
+                    (change)="acceptPP()">I accept the Privacy Policy</mat-checkbox>
+            </div>
+            <div>
+                <button 
+                    type="submit"
+                    mat-raised-button 
+                    color="primary"
+                    [disabled]="!hasAcceptedPP"
+                    matTooltip="Click to enter your data"
+                    [matTooltipPosition]="position.value!"
+                    aria-label="Submit button for user login"
+                    (click)="enterData()">Enter Data</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
