@@ -18,7 +18,7 @@ export class AnalyticsDataFetchService {
   }
 
   fetchDataById(id: string): Observable<AnalyticsData> {
-    const url = `${this.apiUrl}/${id}`
+    const url = `${this.apiUrl}/${id}`;
     return this.http.get<AnalyticsData>(url);
   }
 }

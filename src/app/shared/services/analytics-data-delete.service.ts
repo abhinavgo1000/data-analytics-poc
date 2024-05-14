@@ -12,4 +12,9 @@ export class AnalyticsDataDeleteService {
   private apiUrl = 'http://localhost:5000/analytics/delete-data';
 
   constructor(private http: HttpClient) { }
+
+  deleteData(id: string): Observable<AnalyticsData> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<AnalyticsData>(url);
+  }
 }
