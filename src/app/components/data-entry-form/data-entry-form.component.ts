@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
+import { Router } from '@angular/router';
 import { 
   FormBuilder,
   FormGroup, 
@@ -84,6 +85,7 @@ export class DataEntryFormComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
+    private _router: Router,
     private _snackBar: MatSnackBar,
     private _dataPostService: AnalyticsDataPostService
   ) {
@@ -110,6 +112,7 @@ export class DataEntryFormComponent implements OnInit {
         next: (data) => {
           console.log('Data entered: ', data);
           this.dataEntryForm.reset();
+          this._router.navigate(['/data-list']);
         },
         error: (error) => {
           console.error('Error generating data: ', error);
