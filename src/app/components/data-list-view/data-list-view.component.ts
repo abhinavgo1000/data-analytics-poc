@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, AsyncPipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+import { AnalyticsDataFetchService } from '../../shared/services/analytics-data-fetch.service';
 
 @Component({
   selector: 'app-data-list-view',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    AsyncPipe,
+    MatExpansionModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './data-list-view.component.html',
   styleUrl: './data-list-view.component.scss'
 })
-export class DataListViewComponent {
+export class DataListViewComponent implements OnInit {
 
+  constructor(
+    private _router: Router,
+    private _dataFetchService: AnalyticsDataFetchService
+  ) {}
+
+  ngOnInit(): void {
+    // code to read data
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 
 import { DataEditFormComponent } from '../data-edit-form/data-edit-form.component';
@@ -15,5 +16,5 @@ import { DataEditFormComponent } from '../data-edit-form/data-edit-form.componen
 })
 export class DataEditPageComponent {
 
-  constructor() {}
+  constructor(private _route: ActivatedRoute) {}
 }

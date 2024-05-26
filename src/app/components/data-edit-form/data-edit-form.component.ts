@@ -104,7 +104,20 @@ export class DataEditFormComponent implements OnInit {
     });
   }
 
-  updateData() {}
+  updateData() {
+    // if (this.dataUpdateForm.valid) {
+    //   this._dataUpdateService.updateData(this.dataUpdateForm.value).subscribe({
+    //     next: (data) => {
+    //       console.log('Data entered: ', data);
+    //       this.dataUpdateForm.reset();
+    //       this._router.navigate(['/data-list']);
+    //     },
+    //     error: (error) => {
+    //       console.error('Error generating data: ', error);
+    //     }
+    //   });
+    // }
+  }
 
   acceptPP() {
     this.hasAcceptedPP = !(this.hasAcceptedPP);
