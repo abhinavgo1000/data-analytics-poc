@@ -1,4 +1,5 @@
 export interface AnalyticsData {
+    _id: string;
     usage: string;
     traffic: string;
     dataTransfer: string;

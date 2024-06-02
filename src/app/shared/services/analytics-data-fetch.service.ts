@@ -13,8 +13,8 @@ export class AnalyticsDataFetchService {
 
   constructor(private http: HttpClient) { }
 
-  fetchData(): Observable<AnalyticsData> {
-    return this.http.get<AnalyticsData>(this.apiUrl);
+  fetchData(): Observable<AnalyticsData[]> {
+    return this.http.get<AnalyticsData[]>(this.apiUrl);
   }
 
   fetchDataById(id: string): Observable<AnalyticsData> {
