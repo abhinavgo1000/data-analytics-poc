@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ export class AnalyticsDataDeleteService {
 
   private apiUrl = 'http://localhost:5000/analytics/delete-data';
 
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(String) private http: HttpClient) { }
 
   deleteData(id: string): Observable<AnalyticsData> {
     const url = `${this.apiUrl}/${id}`;

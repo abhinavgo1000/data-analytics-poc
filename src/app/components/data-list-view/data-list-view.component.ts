@@ -34,7 +34,7 @@ export class DataListViewComponent implements OnInit {
   panelOpenState = false;
 
   constructor(
-    // private _router: Router,
+    private _router: Router,
     private _dataFetchService: AnalyticsDataFetchService
   ) {}
 
